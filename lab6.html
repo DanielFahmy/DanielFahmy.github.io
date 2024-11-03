@@ -13,7 +13,7 @@
         <button onclick="fetchCatFacts()" class="btn btn-primary">Get Cat Facts</button>
     </div>
 
-    <div class="table-responsive">
+    <div class="table">
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -21,7 +21,7 @@
                     <th scope="col">Fact</th>
                 </tr>
             </thead>
-            <tbody id="factsTableBody">
+            <tbody id="tableBody">
                 
             </tbody>
         </table>
@@ -40,7 +40,7 @@
 
                 const sortedFacts = data.facts.sort((a, b) => a.factId - b.factId);
 
-                const tableBody = document.getElementById("factsTableBody");
+                const tableBody = document.getElementById("tableBody");
                 tableBody.innerHTML = "";
                 sortedFacts.forEach(fact => {
                     const row = `<tr><td>${fact.factId}</td><td>${fact.text}</td></tr>`;
