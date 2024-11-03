@@ -30,22 +30,20 @@
                 <label for="dob" class="form-label">Date of Birth</label>
                 <input type="date" class="form-control" id="dob" required>
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="button" class="btn btn-primary" onclick="FormSubmit()">Register</button>
         </form>
         <div id="result" class="mt-4"></div>
     </div>
 
     <script>
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
+        function FormSubmit() {
             const firstName = document.getElementById('firstName').value;
             const lastName = document.getElementById('lastName').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const dob = document.getElementById('dob').value;
 
-            //Checks if the inputs are in
+            // Checks if the inputs are filled
             if (!firstName || !lastName || !email || !password || !dob) {
                 document.getElementById('result').innerHTML = "<div class='alert alert-danger'>All fields must be filled out!</div>";
                 return;
@@ -58,7 +56,7 @@
 
             const maskedPassword = '*'.repeat(password.length);
 
-            //Object class
+            // Object to hold user info
             const user = {
                 firstName: firstName,
                 lastName: lastName,
@@ -67,7 +65,7 @@
                 dob: dob
             };
 
-            //Shows the registration was successful
+            // Show success message
             document.getElementById('result').innerHTML = `
                 <div class="alert alert-success">
                     Registration Complete!
@@ -78,7 +76,7 @@
                     <p><strong>Date of Birth:</strong> ${user.dob}</p>
                 </div>
             `;
-        });
+        }
     </script>
 </body>
 </html>
